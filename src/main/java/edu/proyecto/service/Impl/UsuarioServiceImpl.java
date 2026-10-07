@@ -17,7 +17,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     public UsuarioEntity validarUsuario(LoginRequestDto request) {
         UsuarioEntity usuario = personaRepository.obtenerPorCredenciales(request);  
 
-        if(usuario == null || usuario.getIdUsuario() == 0){
+        if(usuario == null || usuario.getIdUsuario() == null){
             throw new RuntimeException("El usuario no existe. O las credenciales ingresadas son incorrectas");
         }
 
